@@ -1,2 +1,1 @@
-# yunxiangzhang.github.io
-Yunxiang Zhang's personal website
+Yunxiang Zhang's personal website. Template from [Jon Barron](https://jonbarron.info/).
