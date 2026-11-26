@@ -1,0 +1,45 @@
+# Site settings. After editing this file, restart `bundle exec jekyll serve`
+# (it is not reloaded automatically).
+title: Yunxiang Zhang
+description: >-
+  Yunxiang Zhang is a researcher at AMD working on neural graphics and real-time generative rendering. He holds a Ph.D. in Computer Science from NYU.
+url: https://yunxiangzhang.github.io
+baseurl: ""
+lang: en
+
+author:
+  name: Yunxiang Zhang          # bolded wherever it appears in author lists
+  email: yunxiang.zhang.polytechnique@gmail.com
+  photo: /assets/images/Yunxiang.jpg
+  cv: /assets/files/Yunxiang.pdf
+  twitter: YunxiangSJTU         # X handle; jekyll-seo-tag uses it for the link-preview creator
+
+# Links shown under the bio, in order. `icon` is a Font Awesome class.
+# `icon_only: true` hides the label text; the label is still used as the
+# link's accessible name and hover tooltip.
+social:
+  - { label: Email,          icon: fa-solid fa-envelope,       url: "mailto:yunxiang.zhang.polytechnique@gmail.com" }
+  - { label: CV,             icon: fa-solid fa-file-lines,     url: /assets/files/Yunxiang.pdf }
+  - { label: Google Scholar, icon: fa-solid fa-graduation-cap, url: "https://scholar.google.com/citations?user=ODbxhqsAAAAJ&hl=en" }
+  - { label: LinkedIn,       icon: fa-brands fa-linkedin,      url: "https://www.linkedin.com/in/yunxiang-zhang-5815b7136/" }
+  - { label: X,              icon: fa-brands fa-x-twitter,     url: "https://x.com/YunxiangSJTU", icon_only: true }
+  - { label: GitHub,         icon: fa-brands fa-github,        url: "https://github.com/yunxiangzhang" }
+
+# Number of news items shown before the "Older news" toggle.
+news_visible: 10
+
+# Used by jekyll-seo-tag for X (Twitter) link previews.
+twitter:
+  username: YunxiangSJTU
+image: /assets/images/Yunxiang.jpg
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - assets/README.md   # maintenance guide; not part of the site
+  - Gemfile
+  - Gemfile.lock
+  - scripts/
+  - vendor/

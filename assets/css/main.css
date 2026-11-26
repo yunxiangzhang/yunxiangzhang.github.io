@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Design tokens. Colors are redefined for dark mode at the bottom.
+   ========================================================================== */
+:root {
+  --font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --text: #222;
+  --muted: #666;
+  --bg: #fff;
+  --surface: #f6f8fa;      /* hover / card background */
+  --border: #e3e6ea;
+  --link: #1772d0;
+  --link-hover: #f09228;
+  --award: #d6204e;
+  --award-bg: #fdecef;
+  --press: #1a8fd6;
+  --press-bg: #e8f4fc;
+  --radius: 8px;
+  --page-width: 820px;
+  --thumb-width: 200px;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+a:hover,
+a:focus-visible { color: var(--link-hover); }
+a:focus-visible { outline: 2px solid var(--link-hover); outline-offset: 2px; border-radius: 2px; }
+
+p { margin: 0 0 0.9em; }
+img, video { display: block; max-width: 100%; height: auto; }
+
+.page {
+  max-width: var(--page-width);
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+}
+
+section { margin-top: 40px; }
+
+h2 {
+  margin: 0 0 16px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+/* ==========================================================================
+   Intro: bio on the left, photo on the right
+   ========================================================================== */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 32px;
+  align-items: center;
+}
+
+.name {
+  margin: 0 0 16px;
+  font-size: 34px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.intro-photo img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease-in-out;
+}
+.intro-photo:hover img { transform: scale(1.02); }
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  margin-top: 4px;
+}
+.social a { white-space: nowrap; }
+.social i { margin-right: 5px; }
+.social .icon-only i { margin-right: 0; }  /* links with `icon_only: true` */
+
+/* ==========================================================================
+   News
+   ========================================================================== */
+.news {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.news li {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 12px;
+  padding: 5px 0;
+}
+.news-date {
+  color: var(--muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.news-older summary {
+  cursor: pointer;
+  color: var(--link);
+  margin-top: 6px;
+  width: fit-content;
+}
+.news-older summary:hover { color: var(--link-hover); }
+.news-older[open] summary { margin-bottom: 4px; }
+
+/* ==========================================================================
+   Badges (awards, press features); used in publications and news
+   ========================================================================== */
+.badge {
+  display: inline-block;
+  padding: 1px 9px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+.badge i { margin-right: 3px; }
+.badge.award { color: var(--award); background: var(--award-bg); }
+.badge.press { color: var(--press); background: var(--press-bg); }
+a.badge:hover { filter: brightness(0.92); }
+
+/* ==========================================================================
+   Publications
+   ========================================================================== */
+.pub {
+  display: grid;
+  grid-template-columns: var(--thumb-width) 1fr;
+  gap: 24px;
+  align-items: center;
+  margin: 0 -12px;
+  padding: 14px 12px;
+  border-radius: var(--radius);
+  transition: background-color 0.15s ease-in-out;
+}
+.pub:hover { background: var(--surface); }
+
+.pub-media img,
+.pub-media video {
+  width: 100%;
+  max-height: 220px;      /* keeps tall teasers from dominating the row */
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.pub-body p { margin: 0 0 3px; }
+
+.pub-title {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.pub-title a { color: var(--text); }
+.pub-title a:hover { color: var(--link-hover); }
+
+.pub-authors sup,
+.note sup { font-size: 0.7em; }
+
+.pub-venue { font-style: italic; color: var(--muted); }
+
+.pub-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 4px !important;
+}
+
+/* "Paper / Project Page / Video / Code" */
+.pub-links a { white-space: nowrap; }
+.pub-links a + a::before {
+  content: "/";
+  margin: 0 7px;
+  color: var(--muted);
+}
+
+.note { color: var(--muted); font-size: 14px; margin-top: 10px; }
+
+/* ==========================================================================
+   Experience and services
+   ========================================================================== */
+.experience {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.experience li {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0 16px;
+  padding: 5px 0;
+}
+.experience .dates { color: var(--muted); white-space: nowrap; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer {
+  margin-top: 48px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+.footer p { text-align: right; margin: 0; }
+
+/* ==========================================================================
+   Small screens: stack the intro and shrink thumbnails
+   ========================================================================== */
+@media (max-width: 640px) {
+  .page { padding: 28px 16px 16px; }
+  .intro { grid-template-columns: 1fr; gap: 20px; }
+  .intro-photo { order: -1; width: 180px; margin: 0 auto; }
+  .name { font-size: 30px; margin-bottom: 12px; }
+  .pub { grid-template-columns: 110px 1fr; gap: 14px; align-items: start; }
+  .news li { grid-template-columns: 1fr; gap: 0; }
+}
+
+/* ==========================================================================
+   Dark mode (follows the operating-system setting)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text: #e6e6e6;
+    --muted: #a0a4a8;
+    --bg: #15171a;
+    --surface: #1e2125;
+    --border: #2e3237;
+    --link: #5aa9f0;
+    --link-hover: #f5a54a;
+    --award: #ff6b8a;
+    --award-bg: #3a1d25;
+    --press: #5cc3ff;
+    --press-bg: #14303f;
+  }
+  .intro-photo img { box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); }
+}

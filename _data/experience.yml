@@ -1,0 +1,25 @@
+# Newest first. `dates` is free text; use an en dash (–) between dates.
+- role: Member of Technical Staff
+  org: AMD
+  url: https://www.amd.com/
+  dates: Sep 2026 – Present
+- role: Research Intern
+  org: Meta Reality Labs
+  url: https://tech.facebook.com/reality-labs/
+  dates: Aug 2025 – Jan 2026
+- role: Research Intern
+  org: Adobe Research
+  url: https://research.adobe.com/
+  dates: Apr 2025 – Jul 2025
+- role: Research Intern
+  org: Intel Graphics Research
+  url: https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/overview.html
+  dates: May 2023 – Aug 2023
+# - role: Research Intern
+#   org: Vector Institute
+#   url: https://vectorinstitute.ai
+#   dates: Mar 2020 – Jun 2020
+# - role: Research Intern
+#   org: Télécom Paris
+#   url: https://www.telecom-paris.fr/en/home
+#   dates: Apr 2018 – Aug 2018

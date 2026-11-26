@@ -1,587 +1,80 @@
-<!DOCTYPE HTML>
-<html lang="en">
+---
+layout: default
+---
+{%- comment -%}
+  Page structure only. Content lives in:
+    bio            _includes/about.md
+    links          _config.yml (social)
+    news           _data/news.yml
+    publications   _data/publications.yml (+ _data/people.yml for co-author links)
+    experience     _data/experience.yml
+    services       _data/services.yml
+{%- endcomment -%}
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<header class="intro">
+  <div class="intro-text">
+    <h1 class="name">{{ site.author.name }}</h1>
+    {% capture about %}{% include about.md %}{% endcapture %}
+    {{ about | markdownify }}
+    <nav class="social" aria-label="Contact and profiles">
+      {%- for link in site.social %}
+      {%- if link.icon_only %}
+      <a class="icon-only" href="{{ link.url | relative_url }}" aria-label="{{ link.label }}" title="{{ link.label }}"><i class="{{ link.icon }}" aria-hidden="true"></i></a>
+      {%- else %}
+      <a href="{{ link.url | relative_url }}"><i class="{{ link.icon }}" aria-hidden="true"></i>{{ link.label }}</a>
+      {%- endif %}
+      {%- endfor %}
+    </nav>
+  </div>
+  <a class="intro-photo" href="{{ site.author.photo | relative_url }}">
+    <img src="{{ site.author.photo | relative_url }}" alt="Photo of {{ site.author.name }}" width="527" height="800">
+  </a>
+</header>
 
-  <title>Yunxiang Zhang</title>
+<section id="news">
+  <h2>News</h2>
+  {%- assign visible = site.news_visible | default: 10 %}
+  <ul class="news">
+    {%- for item in site.data.news limit: visible %}
+    <li><span class="news-date">{{ item.date }}</span><span>{{ item.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></li>
+    {%- endfor %}
+  </ul>
+  {%- if site.data.news.size > visible %}
+  <details class="news-older">
+    <summary>Older news</summary>
+    <ul class="news">
+      {%- for item in site.data.news offset: visible %}
+      <li><span class="news-date">{{ item.date }}</span><span>{{ item.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></li>
+      {%- endfor %}
+    </ul>
+  </details>
+  {%- endif %}
+</section>
 
-  <meta name="author" content="Yunxiang Zhang">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<section id="publications">
+  <h2>Publications</h2>
+  {%- for pub in site.data.publications %}
+  {% include publication.html pub=pub %}
+  {%- endfor %}
+  <p class="note"><sup>*</sup> Equal contributions</p>
+</section>
 
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" href="images/Icon.jpg">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
+<section id="experience">
+  <h2>Work Experience</h2>
+  <ul class="experience">
+    {%- for job in site.data.experience %}
+    <li><span>{{ job.role }} at <a href="{{ job.url }}">{{ job.org }}</a></span><span class="dates">{{ job.dates }}</span></li>
+    {%- endfor %}
+  </ul>
+</section>
 
-<body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-    <tbody>
-      <tr style="padding:0px">
-        <td style="padding:0px">
+<section id="services">
+  <h2>Academic Services</h2>
+  {%- for service in site.data.services %}
+  <p><strong>{{ service.label }}:</strong> {{ service.items }}</p>
+  {%- endfor %}
+</section>
 
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr style="padding:0px">
-                <td style="padding:2.5%;width:63%;vertical-align:middle">
-                  <p style="text-align:center">
-                    <name>Yunxiang Zhang</name>
-                  </p>
-                  <p>
-                    Welcome! I'm a final-year Computer Science Ph.D. student at <a href="https://www.nyu.edu">NYU</a>, advised by <a href="https://qisun.me">Prof. Qi Sun</a> in the <a href="https://www.immersivecomputinglab.org">Immersive
-                      Computing Lab</a>. My current research revolves around virtual/augmented/mixed reality, human-computer interaction, perceptual computer graphics, and machine learning, with a particular focus on AI-powered multimodal interaction experiences and human-AI co-creation systems. More broadly, I enjoy combining knowledge and insights from human perception and human-computer interaction research with machine learning tools to solve challenging real-world problems.
-                  </p>
-                  <p>
-                    Prior to NYU, I obtained my M.Phil in the <a href="https://mmlab.ie.cuhk.edu.hk">Multimedia Laboratory</a> at <a href="https://www.gs.cuhk.edu.hk">CUHK</a> under the supervision of <a
-                      href="http://dahua.site">Prof. Dahua Lin</a>. Before that, I did my
-                    undergraduate studies at <a href="https://en.sjtu.edu.cn">SJTU</a> and <a href="https://www.polytechnique.edu/en">École Polytechnique</a>.
-                  </p>
-                  <P>
-                    During my graduate studies, I have had the fortune to work with and learn from great minds at <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a>, <a href="https://research.adobe.com/">Adobe Research</a>, <a href="https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/overview.html">Intel Visual Compute & Graphics Lab</a>, <a href="https://vectorinstitute.ai">Vector Institute</a>, and <a href="https://www.telecom-paris.fr/en/home">Télécom Paris</a> through internships.
-                  <p>
-                    Outside of work, I enjoy movies, hiking, traveling, and photography!
-                  </p>
-                  <p style="text-align:center">
-                    <a href="mailto:yunxiang.zhang@nyu.edu">Email</a> &nbsp/&nbsp
-                    <a href="files/Yunxiang.pdf">CV</a> &nbsp/&nbsp
-                    <a href="https://scholar.google.com/citations?user=ODbxhqsAAAAJ&hl=en">Google Scholar</a> &nbsp/&nbsp
-                    <a href="https://www.linkedin.com/in/yunxiang-zhang-5815b7136">LinkedIn</a> &nbsp/&nbsp
-                    <a href="https://x.com/YunxiangSJTU">Twitter</a> &nbsp/&nbsp
-                    <a href="https://github.com/yunxiangzhang">GitHub</a>
-                  </p>
-                </td>
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <a href="images/Yunxiang.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/Yunxiang.jpg" class="hoverZoomLink"></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td>
-                  <heading>News</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table width="100%" align="center" border="0" cellpadding="10">
-            <tr>
-              <td>
-                <li>
-                  <strong>Nov 2025: </strong> Excited to share that our collaboration project with Sony, <a href="https://www.immersivecomputinglab.org/publication/perceptually-guided-3dgs-streaming-and-rendering-for-virtual-reality/">Perceptual 3DGS</a>, was accepted to WACV 2026!
-                </li>
-                <br>
-                <li>
-                  <strong>Nov 2025: </strong> Thanks <a href="https://users.cg.tuwien.ac.at/zsolnai/about/">Károly Zsolnai-Fehér</a> for featuring <a href="https://github.com/NYU-ICL/image-gs">Image-GS</a> on <a href="https://www.youtube.com/watch?v=_WjU5d26Cc4"><span style="color: #e0144c;"> <i class="fab fa-youtube"></i> Two Minute Papers</span></a> and <a href="https://www.linkedin.com/in/shubham-anand-91a10b211/">Shubham Anand</a> for creating a thorough and well-explained tutorial on <a href="https://learnopencv.com/image-gs-image-reconstruction-using-2d-gaussians/"><span style="color: #4cc9f0;"> <i class="fa-solid fa-rocket"></i> LearnOpenCV</span></a>!
-                </li>
-                <br>
-                <li>
-                  <strong>Aug 2025: </strong> I started a research internship at Meta's Sunnyvale office, working with <a href="https://achapiro.github.io/">Dr. Alex Chapiro</a> on the Imaging Experiences Architecture team led by <a href="https://www.linkedin.com/in/ajitninan/">Ajit Ninan</a>.
-                </li>
-                <br>
-                <li>
-                  <strong>Aug 2025: </strong> I presented our <a href="https://github.com/NYU-ICL/image-gs">Image-GS</a> paper and Nano-3D E-Tech demo at SIGGRAPH 2025 in Vancouver.
-                </li>
-                <br>
-                <li>
-                  <strong>May 2025: </strong> Thrilled to share that my Intel internship project, <a href="https://github.com/NYU-ICL/image-gs">Image-GS</a>, was accepted to SIGGRAPH 2025!
-                </li>
-                <br>
-                <li>
-                  <strong>Apr 2025: </strong> I started a research internship at Adobe's San Francisco office, working with <a href="https://cuongnd.com/">Dr. Cuong Nguyen</a> and <a href="https://mai-t-long.com/">Dr. Long Mai</a>.
-                </li>
-                <!--
-                <br>
-                <li>
-                  <strong>Apr 2025: </strong> NHF got accepted to Optics Express.
-                </li>
-                <br>
-                <li>
-                  <strong>Aug 2024: </strong> Our work on visual-attention-controllable image generation got accepted to TAP and won <span style="color: #e0144c;"> <i class="fas fa-award"></i> Best Paper Award</span>, <span style="color: #e0144c;"> <i class="fas fa-award"></i> Best Presentation Award</span> at SAP 2024!
-                </li>
-                <br>
-                <li>
-                  <strong>Jul 2024: </strong> Two papers, one on force-aware VR interface and one on user-centric multimodal interative virtual agent got accepted to ISMAR 2024, see you in Seattle!
-                </li>
-                <br>
-                <li>
-                  <strong>Jun 2024: </strong> Our work on human visual-auditory perception & performance got accepted to TVCG!
-                </li>
-                <br>
-                <li>
-                  <strong>May 2024: </strong> Our work on accelerating human saccadic response got accepted to SIGGRAPH 2024, see you in Denver!
-                </li>
-                <br>
-                <li>
-                  <strong>Apr 2024: </strong> I received the 2024 Deborah Rosenthal MD Award at NYU Tandon.
-                </li>
-                <br>
-                <li>
-                  <strong>May 2023: </strong> I started an internship at <a href="https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/overview.html">Intel Graphics Research</a>, mentored by <a href="https://www.alexku.me">Dr. Alexandr Kuznetsov</a> and <a href="https://akshayjindal.com">Dr. Akshay Jindal</a>.
-                </li>
-                <br>
-                <li>
-                  <strong>Apr 2023: </strong> Our work on optimized VR/AR ergonomics got accepted to SIGGRAPH 2023, see you in LA!
-                </li> -->
-              </td>
-            </tr>
-          </table>
-          <br>
-
-          
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
-            <tbody>
-              <tr>
-                <td>
-                  <heading>Publications</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/perceptual-3dgs.jpg" alt="fast-texture" width="240" height="290">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://github.com/NYU-ICL/perceptual-3dgs"></a>
-                  <papertitle>Perceptually Guided 3DGS Streaming and Rendering for Mixed Reality</papertitle>
-                  </a>
-                  <br>
-                  <strong>Yunxiang Zhang*</strong>,
-                  <a href="https://scholar.google.com/citations?user=N2Gp2gYAAAAJ&hl=en">Sai Harsha Mupparaju*</a>,
-                  <a href="https://kenchen10.github.io/">Kenneth Chen</a>,
-                  <a href="https://jennakangg.github.io/">Jenna Kang</a>,
-                  <a href="https://zhxyxxx.github.io/">Xinyu Zhang</a>,
-                  <a href="https://scholar.google.com/citations?user=Gi0wOVEAAAAJ&hl=ja">Maito Omori</a>,
-                  <a href="https://mohammedari.github.io/">Kazuyuki Arimatsu</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2026)
-                  <br>
-                  <a href="https://www.immersivecomputinglab.org/wp-content/uploads/2025/12/Perceptual-3DGS.pdf">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/perceptually-guided-3dgs-streaming-and-rendering-for-virtual-reality/">Project Page</a> /
-                  <a href="https://github.com/NYU-ICL/perceptual-3dgs">Code</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/image-gs.jpg" alt="fast-texture" width="240" height="238">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://github.com/NYU-ICL/image-gs"></a>
-                  <papertitle>Image-GS: Content-Adaptive Image Representation via 2D Gaussians</papertitle>
-                  </a>
-                  <br>
-                  <strong>Yunxiang Zhang*</strong>,
-                  <a href="https://bingxuan-li.github.io/">Bingxuan Li*</a>,
-                  <a href="https://www.alexku.me/">Alexandr Kuznetsov</a>,
-                  <a href="https://www.akshayjindal.com/">Akshay Jindal</a>,
-                  <a href="https://www.sdiolatz.info/">Stavros Diolatzis</a>,
-                  <a href="https://kenchen10.github.io">Kenneth Chen</a>,
-                  <a href="https://www.intel.com/content/www/us/en/developer/articles/community/gpu-researchers-anton-sochenov.html">Anton Sochenov</a>,
-                  <a href="http://kaplanyan.com/">Anton Kaplanyan</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  ACM SIGGRAPH 2025
-                  <br>
-                  <a href="https://www.youtube.com/watch?v=_WjU5d26Cc4"><span style="color: #e0144c;"> <i class="fab fa-youtube"></i> Two Minute Papers</span></a> &nbsp;
-                  <a href="https://learnopencv.com/image-gs-image-reconstruction-using-2d-gaussians/"><span style="color: #4cc9f0;"> <i class="fa-solid fa-rocket"></i> LearnOpenCV</span></a>
-                  <br>
-                  <a href="https://arxiv.org/abs/2407.01866/">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/image-gs-content-adaptive-image-representation-via-2d-gaussians/">Project Page</a> /
-                  <a href="https://www.youtube.com/watch?v=_WjU5d26Cc4">Video</a> /
-                  <a href="https://github.com/NYU-ICL/image-gs">Code</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/nano-3d.jpg" alt="fast-texture" width="240" height="202">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://arxiv.org/abs/2503.15770"></a>
-                  <papertitle>Nano-3D: Metasurface-Based Neural Depth Imaging</papertitle>
-                  </a>
-                  <br>
-                  <a href="https://bingxuan-li.github.io/">Bingxuan Li*</a>,
-                  Jiahao Wu*,
-                  Yuan Xu*,
-                  Zezheng Zhu,
-                  <strong>Yunxiang Zhang</strong>,
-                  Yanqi Liang,
-                  <a href="https://www.apam.columbia.edu/faculty/nanfang-yu">Nanfang Yu</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  ACM SIGGRAPH 2025 Emerging Technologies
-                  <br>
-                  <a href="https://arxiv.org/abs/2503.15770">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/nano-optics-for-depth-sensing/">Project Page</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/nhf.jpg" alt="fast-texture" width="240" height="212">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://www.immersivecomputinglab.org/publication/novel-view-synthesis-for-3d-computer-generated-holograms-using-deep-neural-fields/"></a>
-                  <papertitle>Novel View Synthesis for 3D Computer-Generated Holograms Using Deep Neural Fields</papertitle>
-                  </a>
-                  <br>
-                  <a href="https://kenchen10.github.io">Kenneth Chen</a>,
-                  Anzhou Wen,
-                  <strong>Yunxiang Zhang</strong>,
-                  <a href="https://www.cs.unc.edu/~cpk/">Praneeth Chakravarthula</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  Optics Express 2025
-                  <br>
-                  <a href="https://opg.optica.org/oe/fulltext.cfm?uri=oe-33-9-19399&id=570619">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/novel-view-synthesis-for-3d-computer-generated-holograms-using-deep-neural-fields/">Project Page</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/saliency-guided-image-generation.gif" alt="fast-texture" width="240" height="254">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://www.immersivecomputinglab.org/publication/gazefusion-saliency-guided-image-generation/"></a>
-                  <papertitle>GazeFusion: Saliency-guided Image Generation</papertitle>
-                  </a>
-                  <br>
-                  <strong>Yunxiang Zhang</strong>,
-                  Nan Wu,
-                  <a href="https://connorzlin.com/">Connor Lin</a>,
-                  <a href="https://web.stanford.edu/~gordonwz/">Gordon Wetzstein</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  ACM Transactions on Applied Perception (ACM SAP 2024)
-                  <br>
-                  <a href="https://www.immersivecomputinglab.org/gaze-won-both-the-best-paper-award-and-the-best-presentation-award-at-acm-sap-2024-congratulations-yunxiang/"><span style="color: #e0144c;"> <i class="fas fa-award"></i> Best Paper Award</span> &nbsp; <span style="color: #e0144c;"> <i class="fas fa-award"></i> Best Presentation Award</span></a>
-                  <br>
-                  <a href="https://www.immersivecomputinglab.org/wp-content/uploads/2024/09/gaze_fusion_tap.pdf">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/gazefusion-saliency-guided-image-generation/">Project Page</a> /
-                  <a href="https://www.youtube.com/watch?v=vFa8cyYhdD4">Video</a> /
-                  <a href="https://github.com/NYU-ICL/saliency-guided-image-generation">Code</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/visual-auditory-integration.jpg" alt="fast-texture" width="240" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://www.immersivecomputinglab.org/publication/measuring-and-predicting-multisensory-reaction-latency-a-probabilistic-model-for-visual-auditory-integration/"></a>
-                  <papertitle>Measuring and Predicting Multisensory Reaction Latency: A Probabilistic Model for Visual-Auditory Integration</papertitle>
-                  </a>
-                  <br>
-                  Xi Peng,
-                  <strong>Yunxiang Zhang</strong>,
-                  <a href="https://people.mpi-inf.mpg.de/~djimenez/">Daniel Jiménez Navarro</a>,
-                  <a href="https://ana-serrano.github.io/">Ana Serrano</a>,
-                  <a href="https://people.mpi-inf.mpg.de/~karol/">Karol Myszkowski</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  IEEE Transactions on Visualization and Computer Graphics (IEEE ISMAR 2024)
-                  <br>
-                  <a href="https://www.computer.org/csdl/journal/tg/5555/01/10670078/206qqO9oW08">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/measuring-and-predicting-multisensory-reaction-latency-a-probabilistic-model-for-visual-auditory-integration/">Project Page</a> /
-                  <a href="https://www.youtube.com/watch?v=nSEzDk0gIAk">Video</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/improved-xr-force-interface.jpg" alt="fast-texture" width="240" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://www.immersivecomputinglab.org/publication/may-the-force-be-with-you-dexterous-finger-force-aware-xr-interface/"></a>
-                  <papertitle>May the Force Be with You: Dexterous Finger Force-Aware VR Interface</papertitle>
-                  </a>
-                  <br>
-                  Fengze Zhang*,
-                  <strong>Yunxiang Zhang*</strong>,
-                  Xi Peng,
-                  Sky Achitoff,
-                  <a href="https://engineering.nyu.edu/faculty/paul-torrens">Paul M. Torrens</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  IEEE International Symposium on Mixed and Augmented Reality (IEEE ISMAR 2024)
-                  <br>
-                  <a href="https://www.immersivecomputinglab.org/wp-content/uploads/2024/09/emg_force_ui.pdf">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/may-the-force-be-with-you-dexterous-finger-force-aware-xr-interface/">Project Page</a> /
-                  <a href="https://github.com/NYU-ICL/vr-force-aware-multimodal-interface">Code</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/interactive-virtual-agent.jpg" alt="fast-texture" width="240" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://www.immersivecomputinglab.org/research/"></a>
-                  <papertitle>Toward User-Aware Interactive Virtual Agents: Generative Multi-Modal Avatar Behaviors in VR</papertitle>
-                  </a>
-                  <br>
-                  Bhasura Gunawardhana,
-                  <strong>Yunxiang Zhang</strong>,
-                  <a href="https://qisun.me">Qi Sun</a>,
-                  <a href="https://graphics.cs.uh.edu/zdeng/">Zhigang Deng</a>
-                  <br>
-                  IEEE International Symposium on Mixed and Augmented Reality (IEEE ISMAR 2024)
-                  <br>
-                  <a href="https://www.immersivecomputinglab.org/wp-content/uploads/2024/08/2024-ISMAR-AgentBehaviorGeneration.pdf">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/research/">Project Page</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/saccadic-response-acceleration.jpg" alt="fast-texture" width="240" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://avsaccadeaccel.mpi-inf.mpg.de/"></a>
-                  <papertitle>Accelerating Saccadic Response through Spatial and Temporal Cross-Modal Misalignments</papertitle>
-                  </a>
-                  <br>
-                  <a href="https://people.mpi-inf.mpg.de/~djimenez/">Daniel Jiménez Navarro</a>,
-                  Xi Peng,
-                  <strong>Yunxiang Zhang</strong>,
-                  <a href="https://people.mpi-inf.mpg.de/~karol/">Karol Myszkowski</a>,
-                  <a href="https://people.mpi-inf.mpg.de/~hpseidel/">Hans-Peter Seidel</a>,
-                  <a href="https://qisun.me">Qi Sun</a>,
-                  <a href="https://ana-serrano.github.io/">Ana Serrano</a>
-                  <br>
-                  ACM SIGGRAPH 2024
-                  <br>
-                  <a href="https://avsaccadeaccel.mpi-inf.mpg.de/resource/paper.pdf">Paper</a> /
-                  <a href="https://avsaccadeaccel.mpi-inf.mpg.de/">Project Page</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/xr-ergonomics-neck-comfort.jpg" alt="fast-texture" width="240" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://www.immersivecomputinglab.org/publication/toward-optimized-vr-ar-ergonomics-modeling-and-predicting-user-neck-muscle-contraction/"></a>
-                  <papertitle>Toward Optimized VR/AR Ergonomics: Modeling and Predicting User Neck Muscle Contraction</papertitle>
-                  </a>
-                  <br>
-                  <strong>Yunxiang Zhang</strong>,
-                  <a href="https://kenchen10.github.io">Kenneth Chen</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  ACM SIGGRAPH 2023
-                  <br>
-                  <a href="https://www.immersivecomputinglab.org/wp-content/uploads/2023/05/xr-ergonomics-neck-comfort.pdf">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/toward-optimized-vr-ar-ergonomics-modeling-and-predicting-user-neck-muscle-contraction/">Project Page</a> /
-                  <a href="https://www.youtube.com/watch?v=XO8VR1tJoaI">Video</a> /
-                  <a href="https://github.com/NYU-ICL/xr-ergonomics-neck-comfort">Code</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/xr-emg-force-interface.jpg" alt="fast-texture" width="240" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://www.immersivecomputinglab.org/publication/force-aware-interface-via-electromyography-for-natural-vr-ar-interaction/">
-                    <papertitle>Force-Aware Interface via Electromyography for Natural VR/AR Interaction</papertitle>
-                  </a>
-                  <br>
-                  <strong>Yunxiang Zhang</strong>,
-                  Benjamin Liang,
-                  Boyuan Chen,
-                  <a href="https://engineering.nyu.edu/faculty/paul-torrens">Paul M. Torrens</a>,
-                  <a href="https://wp.nyu.edu/meriit/team/">S. Farokh Atashzar</a>,
-                  <a href="http://dahua.site">Dahua Lin</a>,
-                  <a href="https://qisun.me">Qi Sun</a>
-                  <br>
-                  ACM Transactions on Graphics (ACM SIGGRAPH Asia 2022)
-                  <br>
-                  <a href="https://www.immersivecomputinglab.org/wp-content/uploads/2022/10/xr-emg-force-interface.pdf">Paper</a> /
-                  <a href="https://www.immersivecomputinglab.org/publication/force-aware-interface-via-electromyography-for-natural-vr-ar-interaction/">Project Page</a> /
-                  <a href="https://www.youtube.com/watch?v=Y95LgJT0-Ks">Video</a> /
-                  <a href="https://github.com/NYU-ICL/xr-emg-force-interface">Code</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/similarity-based-pruning.jpg" alt="fast-texture" width="256" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://ieeexplore.ieee.org/document/10052713">
-                    <papertitle>Exploiting Channel Similarity for Network Pruning</papertitle>
-                  </a>
-                  <br>
-                  Chenglong Zhao,
-                  <strong>Yunxiang Zhang</strong>,
-                  Bingbing Ni
-                  <br>
-                  IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT 2023)
-                  <br>
-                  <a href="https://ieeexplore.ieee.org/document/10052713">Paper</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/capc-learning.jpg" alt="fast-texture" width="300" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="http://www.cleverhans.io/2021/05/01/capc.html">
-                    <papertitle>CaPC Learning: Confidential and Private Collaborative Learning</papertitle>
-                  </a>
-                  <br>
-                  <a href="https://www.christopherchoquette.com">Christopher A. Choquette-Choo*</a>,
-                  <a href="https://ndullerud.github.io">Natalie Dullerud*</a>,
-                  <a href="https://adam-dziedzic.com">Adam Dziedzic*</a>,
-                  <strong>Yunxiang Zhang*</strong>,
-                  <a href="https://pages.cs.wisc.edu/~jha/">Somesh Jha</a>,
-                  <a href="https://www.papernot.fr">Nicolas Papernot</a>,
-                  <a href="https://wangxiao1254.github.io">Xiao Wang</a>
-                  <br>
-                  International Conference on Learning Representations (ICLR 2021)
-                  <br>
-                  <a href="https://openreview.net/pdf?id=h2EbJ4_wMVq">Paper</a> /
-                  <a href="http://www.cleverhans.io/2021/05/01/capc.html">Project Page</a> /
-                  <a href="https://www.youtube.com/watch?v=3Fp9NpVIwLE">Video</a> /
-                  <a href="https://github.com/cleverhans-lab/capc-iclr">Code</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle">
-                  <img src="images/maxplus-network.jpg" alt="fast-texture" width="236" height="160">
-                </td>
-                <td width="75%" valign="middle">
-                  <a href="https://perso.telecom-paristech.fr/bloch/papers/proceedings/ISMM2019-Yunxiang.pdf">
-                    <papertitle>Max-plus Operators Applied to Filter Selection and Model Pruning in Neural Networks</papertitle>
-                  </a>
-                  <br>
-                  <strong>Yunxiang Zhang</strong>,
-                  <a href="https://samyblusseau.jimdofree.com">Samy Blusseau</a>,
-                  <a href="https://people.cmm.minesparis.psl.eu/users/velasco/">Santiago Velasco-Forero</a>,
-                  <a href="https://perso.telecom-paristech.fr/bloch/">Isabelle Bloch</a>,
-                  <a href="https://people.cmm.minesparis.psl.eu/users/angulo/">Jesus Angulo</a>
-                  <br>
-                  International Symposium on Mathematical Morphology and Its Application to Signal and Image Processing (ISMM 2019)
-                  <br>
-                  <a href="https://perso.telecom-paristech.fr/bloch/papers/proceedings/ISMM2019-Yunxiang.pdf">Paper</a> /
-                  <a href="https://github.com/yunxiangzhang/Maxplus-Operators">Code</a>
-                </td>
-              </tr>
-
-              <br>
-              <tr>
-                <td style="padding:20px;width:25%;vertical-align:middle"></td>
-                <td width="75%" valign="middle">* Equal contributions</td>
-              </tr>
-            </tbody>
-          </table>
-          <br>
-
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
-            <tbody>
-              <tr>
-                <td>
-                  <heading>Work Experience</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table width="100%" align="center" border="0" cellpadding="10">
-            <tr>
-              <td>
-                Research Intern at <a href="https://tech.facebook.com/reality-labs/">Meta Reality Labs</a>
-                <span style="float:right;">Aug 2025 - Jan 2026</span>
-                <br>
-                <br>
-                Research Intern at <a href="https://research.adobe.com/">Adobe Research</a>
-                <span style="float:right;">Apr 2025 - Jul 2025</span>
-                <br>
-                <br>
-                Research Intern at <a href="https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/overview.html">Intel Visual Compute & Graphics Lab</a>
-                <span style="float:right;">May 2023 - Aug 2023</span>
-                <br>
-                <br>
-                Research Intern at <a href="https://vectorinstitute.ai">Vector Institute</a>
-                <span style="float:right;">Mar 2020 - Jun 2020</span>
-                <br>
-                <br>
-                Research Intern at <a href="https://www.telecom-paris.fr/en/home">Télécom Paris</a>
-                <span style="float:right;">Apr 2018 - Aug 2018 </span>
-              </td>
-            </tr>
-          </table>
-          <br>
-
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
-            <tbody>
-              <tr>
-                <td>
-                  <heading>Academic Services</heading>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table width="100%" align="center" border="0" cellpadding="10">
-            <tr>
-              <td>
-                <strong>Conference Reviewer:</strong> SIGGRAPH, SIGGRAPH Asia, TOG, TVCG, AAAI, IEEE VR, ISMAR, PG, JPI
-              </td>
-            </tr>
-          </table>
-          <br>
-
-
-          <table width="100%" align="center" border="0" cellspacing="0" cellpadding="10">
-            <tbody>
-              <tr>
-                <td style="padding:0px;width:23%;vertical-align:left">
-                  <br>
-                  <div style="width: 50%; text-align: center; margin: 0 auto;">
-                    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=b15gK96yi-6692E5CIh24VZ7u9heqyZKtvpSuUeVPF8"></script>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-          <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody>
-              <tr>
-                <td style="padding:20px">
-                  <br>
-                  <p style="text-align:right;font-size:small;">
-                    Template borrowed from <a style="font-size:small;" href="https://jonbarron.info/">Jon Barron</a>
-                  </p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-
-        </td>
-      </tr>
-  </table>
-  </td>
-  </tr>
-  </table>
-</body>
-
-</html>
+<footer class="footer">
+  <p>Template adapted from <a href="https://jonbarron.info/">Jon Barron</a></p>
+</footer>

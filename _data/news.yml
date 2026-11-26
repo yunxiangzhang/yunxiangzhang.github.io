@@ -1,0 +1,75 @@
+# News, newest first. `text` is Markdown: [link text](url), **bold**, etc.
+# The first `news_visible` items (see _config.yml) are shown; the rest are
+# collapsed under "Older news".
+
+- date: Dec 2026
+  text: I presented [Hue's the Boss?](/assets/files/perceptual-color-experience.pdf) at SIGGRAPH Asia 2026 in Kuala Lumpur, Malaysia.
+
+- date: Sep 2026
+  text: I joined the Advanced Rendering Research team at [AMD](https://www.amd.com/) as a Member of Technical Staff!
+
+- date: Aug 2026
+  text: My internship project at Meta, [Hue's the Boss?](/assets/files/perceptual-color-experience.pdf), has been accepted to SIGGRAPH Asia 2026.
+
+- date: Jun 2026
+  text: Our paper on [Metalens-Based Depth Imaging](https://bingxuan-li.github.io/metasurface-depth-eccv2026/) has been accepted to ECCV 2026.
+
+- date: Apr 2026
+  text: I successfully defended my dissertation, [Perceptually Driven Methods for Multimodal Interactive Graphics Systems](/assets/files/phd-dissertation.pdf), and earned my Ph.D. in Computer Science from [NYU](https://www.nyu.edu)!
+
+- date: Mar 2026
+  text: I presented [Perceptual 3DGS](https://sonyinteractive.com/en/news/blog/perceptually-guided-3dgs-streaming-and-rendering-for-mixed-reality/) at WACV 2026 in Tucson, Arizona.
+
+- date: Nov 2025
+  text: Our collaborative work with Sony Interactive Entertainment, [Perceptual 3DGS](https://sonyinteractive.com/en/news/blog/perceptually-guided-3dgs-streaming-and-rendering-for-mixed-reality/), has been accepted to WACV 2026.
+
+- date: Nov 2025
+  text: >-
+    Many thanks to [Károly Zsolnai-Fehér](https://users.cg.tuwien.ac.at/zsolnai/about/) for featuring
+    [Image-GS](https://github.com/NYU-ICL/image-gs) on
+    <a class="badge award" href="https://www.youtube.com/watch?v=_WjU5d26Cc4"><i class="fa-brands fa-youtube"></i> Two Minute Papers</a>,
+    and to [Shubham Anand](https://www.linkedin.com/in/shubham-anand-91a10b211/) for putting together a thorough, well-explained tutorial on
+    <a class="badge press" href="https://learnopencv.com/image-gs-image-reconstruction-using-2d-gaussians/"><i class="fa-solid fa-rocket"></i> LearnOpenCV</a>.
+
+- date: Aug 2025
+  text: I started my internship at Meta Reality Labs, working with [Dr. Alex Chapiro](https://achapiro.github.io/) as part of the Imaging Experiences Architecture team led by [Ajit Ninan](https://www.linkedin.com/in/ajitninan/).
+
+- date: Aug 2025
+  text: I presented [Image-GS](https://github.com/NYU-ICL/image-gs) at SIGGRAPH 2025 in Vancouver, Canada.
+
+- date: May 2025
+  text: My internship project at Intel, [Image-GS](https://github.com/NYU-ICL/image-gs), has been accepted to SIGGRAPH 2025.
+
+- date: Apr 2025
+  text: I started my internship at Adobe Research, working with [Dr. Cuong Nguyen](https://cuongnd.com/) and [Dr. Long Mai](https://mai-t-long.com/).
+
+- date: Apr 2025
+  text: Our paper on [Computer-Generated Holography](https://kenchen10.github.io/projects/oe25/index.html) has been accepted to Optics Express.
+
+- date: Aug 2024
+  text: >-
+    Our work on visual attention-controllable image generation has been accepted to TAP and received both the
+    <span class="badge award"><i class="fa-solid fa-award"></i> Best Paper Award</span> and the
+    <span class="badge award"><i class="fa-solid fa-award"></i> Best Presentation Award</span>
+    at SAP 2024!
+
+- date: Jul 2024
+  text: Two of our papers, one on a force-aware VR interface and the other on a user-centric multimodal interactive virtual agent, have been accepted to ISMAR 2024.
+
+- date: Jun 2024
+  text: Our work on human visual-auditory perception & performance has been accepted to TVCG.
+
+- date: May 2024
+  text: Our work on accelerating human saccadic response has been accepted to SIGGRAPH 2024.
+
+- date: Apr 2024
+  text: I received the Deborah Rosenthal MD Award for outstanding performance on the Ph.D. qualifying exam at NYU Tandon.
+
+- date: Aug 2023
+  text: I presented our optimized VR/AR ergonomics work at SIGGRAPH 2023 in Los Angeles, California.
+
+- date: May 2023
+  text: I started my internship at [Intel Graphics Research](https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/overview.html), working with [Dr. Alexandr Kuznetsov](https://www.alexku.me) and [Dr. Akshay Jindal](https://akshayjindal.com).
+
+- date: Apr 2023
+  text: Our work on optimized VR/AR ergonomics has been accepted to SIGGRAPH 2023.

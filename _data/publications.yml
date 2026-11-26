@@ -1,0 +1,168 @@
+# Publications, newest first. Fields:
+#   title    (required)
+#   authors  (required) list of names; append "*" for equal contribution.
+#            Your own name (author.name in _config.yml) is bolded, and names
+#            listed in people.yml are linked to their homepages.
+#   venue    (required)
+#   image    thumbnail path (~480 px wide, see scripts/make-thumbnail.sh), or
+#   video    looping silent MP4 thumbnail (set `image` too, as its poster)
+#   links    any of: paper, project, video, code. The title links to the
+#            project page if present, otherwise to the paper.
+#   paper_label  optional text for the paper link (default "Paper")
+#   badges   optional highlight tags: { text, icon, url, style: award|press }
+
+- title: Perceptually Driven Methods for Multimodal Interactive Graphics Systems
+  authors: [Yunxiang Zhang]
+  venue: Ph.D. Dissertation, New York University, 2026
+  image: /assets/images/phd-dissertation.jpg
+  paper_label: Dissertation
+  links:
+    paper: /assets/files/phd-dissertation.pdf
+
+- title: Hue's the Boss? Perceptual Color Experience on Conventional and AR Displays across Color Gamut and Ambient Luminance
+  authors: [Yunxiang Zhang, Yuta Asano, Thomas Wan, Qi Sun, Alexandre Chapiro]
+  venue: ACM SIGGRAPH Asia 2026
+  image: /assets/images/perceptual-color-experience.jpg
+  links:
+    paper: /assets/files/perceptual-color-experience.pdf
+
+- title: Physically Grounded Monocular Depth via Nanophotonic Wavefront Encoding
+  authors: [Bingxuan Li*, Jiahao Wu*, Yuan Xu*, Zezheng Zhu, Yunxiang Zhang, Kenneth Chen, Yanqi Liang, Nanfang Yu, Qi Sun]
+  venue: European Conference on Computer Vision (ECCV 2026)
+  image: /assets/images/nanophotonic-depth.jpg
+  links:
+    paper: https://arxiv.org/abs/2503.15770
+    project: https://bingxuan-li.github.io/metasurface-depth-eccv2026/
+    video: https://www.youtube.com/watch?v=Qkb4nXjKlwU
+    code: https://github.com/bingxuan-li/metasurface-depth-eccv2026
+
+- title: Perceptually Guided 3DGS Streaming and Rendering for Mixed Reality
+  authors: [Yunxiang Zhang*, Sai Harsha Mupparaju*, Kenneth Chen, Jenna Kang, Xinyu Zhang, Maito Omori, Kazuyuki Arimatsu, Qi Sun]
+  venue: IEEE/CVF Winter Conference on Applications of Computer Vision (WACV 2026)
+  image: /assets/images/perceptual-3dgs.jpg
+  links:
+    paper: https://www.immersivecomputinglab.org/wp-content/uploads/2025/12/Perceptual-3DGS.pdf
+    project: https://www.immersivecomputinglab.org/publication/perceptually-guided-3dgs-streaming-and-rendering-for-virtual-reality/
+    video: https://www.youtube.com/watch?v=2qGCfs54fAQ
+    code: https://github.com/NYU-ICL/perceptual-3dgs
+
+- title: "Image-GS: Content-Adaptive Image Representation via 2D Gaussians"
+  authors: [Yunxiang Zhang*, Bingxuan Li*, Alexandr Kuznetsov, Akshay Jindal, Stavros Diolatzis, Kenneth Chen, Anton Sochenov, Anton Kaplanyan, Qi Sun]
+  venue: ACM SIGGRAPH 2025
+  image: /assets/images/image-gs.jpg
+  links:
+    paper: https://arxiv.org/abs/2407.01866
+    project: https://www.immersivecomputinglab.org/publication/image-gs-content-adaptive-image-representation-via-2d-gaussians/
+    video: https://www.youtube.com/watch?v=_WjU5d26Cc4
+    code: https://github.com/NYU-ICL/image-gs
+  badges:
+    - { text: Two Minute Papers, icon: fa-brands fa-youtube, url: "https://www.youtube.com/watch?v=_WjU5d26Cc4", style: award }
+    - { text: LearnOpenCV, icon: fa-solid fa-rocket, url: "https://learnopencv.com/image-gs-image-reconstruction-using-2d-gaussians/", style: press }
+
+- title: "Nano-3D: Metasurface-Based Neural Depth Imaging"
+  authors: [Bingxuan Li*, Jiahao Wu*, Yuan Xu*, Zezheng Zhu, Yunxiang Zhang, Yanqi Liang, Nanfang Yu, Qi Sun]
+  venue: ACM SIGGRAPH 2025 Emerging Technologies
+  image: /assets/images/nano-3d.jpg
+  links:
+    paper: https://arxiv.org/abs/2503.15770
+    project: https://www.immersivecomputinglab.org/publication/nano-optics-for-depth-sensing/
+
+- title: Novel View Synthesis for 3D Computer-Generated Holograms Using Deep Neural Fields
+  authors: [Kenneth Chen, Anzhou Wen, Yunxiang Zhang, Praneeth Chakravarthula, Qi Sun]
+  venue: Optics Express 2025
+  image: /assets/images/nhf.jpg
+  links:
+    paper: https://opg.optica.org/oe/fulltext.cfm?uri=oe-33-9-19399&id=570619
+    project: https://www.immersivecomputinglab.org/publication/novel-view-synthesis-for-3d-computer-generated-holograms-using-deep-neural-fields/
+
+- title: "GazeFusion: Saliency-Guided Image Generation"
+  authors: [Yunxiang Zhang, Nan Wu, Connor Lin, Gordon Wetzstein, Qi Sun]
+  venue: ACM Transactions on Applied Perception (ACM SAP 2024)
+  image: /assets/images/saliency-guided-image-generation.jpg
+  video: /assets/videos/saliency-guided-image-generation.mp4
+  links:
+    paper: https://www.immersivecomputinglab.org/wp-content/uploads/2024/09/gaze_fusion_tap.pdf
+    project: https://www.immersivecomputinglab.org/publication/gazefusion-saliency-guided-image-generation/
+    video: https://www.youtube.com/watch?v=vFa8cyYhdD4
+    code: https://github.com/NYU-ICL/saliency-guided-image-generation
+  badges:
+    - { text: Best Paper Award, icon: fa-solid fa-award, url: "https://www.immersivecomputinglab.org/gaze-won-both-the-best-paper-award-and-the-best-presentation-award-at-acm-sap-2024-congratulations-yunxiang/", style: award }
+    - { text: Best Presentation Award, icon: fa-solid fa-award, url: "https://www.immersivecomputinglab.org/gaze-won-both-the-best-paper-award-and-the-best-presentation-award-at-acm-sap-2024-congratulations-yunxiang/", style: award }
+
+- title: "Measuring and Predicting Multisensory Reaction Latency: A Probabilistic Model for Visual-Auditory Integration"
+  authors: [Xi Peng, Yunxiang Zhang, Daniel Jiménez Navarro, Ana Serrano, Karol Myszkowski, Qi Sun]
+  venue: IEEE Transactions on Visualization and Computer Graphics (IEEE ISMAR 2024)
+  image: /assets/images/visual-auditory-integration.jpg
+  links:
+    paper: https://www.computer.org/csdl/journal/tg/5555/01/10670078/206qqO9oW08
+    project: https://www.immersivecomputinglab.org/publication/measuring-and-predicting-multisensory-reaction-latency-a-probabilistic-model-for-visual-auditory-integration/
+    video: https://www.youtube.com/watch?v=nSEzDk0gIAk
+
+- title: "May the Force Be with You: Dexterous Finger Force-Aware VR Interface"
+  authors: [Fengze Zhang*, Yunxiang Zhang*, Xi Peng, Sky Achitoff, Paul M. Torrens, Qi Sun]
+  venue: IEEE International Symposium on Mixed and Augmented Reality (IEEE ISMAR 2024)
+  image: /assets/images/improved-xr-force-interface.jpg
+  links:
+    paper: https://www.immersivecomputinglab.org/wp-content/uploads/2024/09/emg_force_ui.pdf
+    project: https://www.immersivecomputinglab.org/publication/may-the-force-be-with-you-dexterous-finger-force-aware-xr-interface/
+    code: https://github.com/NYU-ICL/vr-force-aware-multimodal-interface
+
+- title: "Toward User-Aware Interactive Virtual Agents: Generative Multi-Modal Avatar Behaviors in VR"
+  authors: [Bhasura Gunawardhana, Yunxiang Zhang, Qi Sun, Zhigang Deng]
+  venue: IEEE International Symposium on Mixed and Augmented Reality (IEEE ISMAR 2024)
+  image: /assets/images/interactive-virtual-agent.jpg
+  links:
+    paper: https://www.immersivecomputinglab.org/wp-content/uploads/2024/08/2024-ISMAR-AgentBehaviorGeneration.pdf
+
+- title: Accelerating Saccadic Response through Spatial and Temporal Cross-Modal Misalignments
+  authors: [Daniel Jiménez Navarro, Xi Peng, Yunxiang Zhang, Karol Myszkowski, Hans-Peter Seidel, Qi Sun, Ana Serrano]
+  venue: ACM SIGGRAPH 2024
+  image: /assets/images/saccadic-response-acceleration.jpg
+  links:
+    paper: https://avsaccadeaccel.mpi-inf.mpg.de/resource/paper.pdf
+    project: https://avsaccadeaccel.mpi-inf.mpg.de/
+
+- title: "Toward Optimized VR/AR Ergonomics: Modeling and Predicting User Neck Muscle Contraction"
+  authors: [Yunxiang Zhang, Kenneth Chen, Qi Sun]
+  venue: ACM SIGGRAPH 2023
+  image: /assets/images/xr-ergonomics-neck-comfort.jpg
+  links:
+    paper: https://www.immersivecomputinglab.org/wp-content/uploads/2023/05/xr-ergonomics-neck-comfort.pdf
+    project: https://www.immersivecomputinglab.org/publication/toward-optimized-vr-ar-ergonomics-modeling-and-predicting-user-neck-muscle-contraction/
+    video: https://www.youtube.com/watch?v=XO8VR1tJoaI
+    code: https://github.com/NYU-ICL/xr-ergonomics-neck-comfort
+
+- title: Force-Aware Interface via Electromyography for Natural VR/AR Interaction
+  authors: [Yunxiang Zhang, Benjamin Liang, Boyuan Chen, Paul M. Torrens, S. Farokh Atashzar, Dahua Lin, Qi Sun]
+  venue: ACM Transactions on Graphics (ACM SIGGRAPH Asia 2022)
+  image: /assets/images/xr-emg-force-interface.jpg
+  links:
+    paper: https://www.immersivecomputinglab.org/wp-content/uploads/2022/10/xr-emg-force-interface.pdf
+    project: https://www.immersivecomputinglab.org/publication/force-aware-interface-via-electromyography-for-natural-vr-ar-interaction/
+    video: https://www.youtube.com/watch?v=Y95LgJT0-Ks
+    code: https://github.com/NYU-ICL/xr-emg-force-interface
+
+- title: Exploiting Channel Similarity for Network Pruning
+  authors: [Chenglong Zhao, Yunxiang Zhang, Bingbing Ni]
+  venue: IEEE Transactions on Circuits and Systems for Video Technology (IEEE TCSVT 2023)
+  image: /assets/images/similarity-based-pruning.jpg
+  links:
+    paper: https://ieeexplore.ieee.org/document/10052713
+
+- title: "CaPC Learning: Confidential and Private Collaborative Learning"
+  authors: [Christopher A. Choquette-Choo*, Natalie Dullerud*, Adam Dziedzic*, Yunxiang Zhang*, Somesh Jha, Nicolas Papernot, Xiao Wang]
+  venue: International Conference on Learning Representations (ICLR 2021)
+  image: /assets/images/capc-learning.jpg
+  links:
+    paper: https://openreview.net/pdf?id=h2EbJ4_wMVq
+    project: http://www.cleverhans.io/2021/05/01/capc.html
+    video: https://www.youtube.com/watch?v=3Fp9NpVIwLE
+    code: https://github.com/cleverhans-lab/capc-iclr
+
+- title: Max-Plus Operators Applied to Filter Selection and Model Pruning in Neural Networks
+  authors: [Yunxiang Zhang, Samy Blusseau, Santiago Velasco-Forero, Isabelle Bloch, Jesús Angulo]
+  venue: International Symposium on Mathematical Morphology and Its Application to Signal and Image Processing (ISMM 2019)
+  image: /assets/images/maxplus-network.jpg
+  links:
+    paper: https://perso.telecom-paristech.fr/bloch/papers/proceedings/ISMM2019-Yunxiang.pdf
+    code: https://github.com/yunxiangzhang/Maxplus-Operators

@@ -1,0 +1,7 @@
+Welcome! I'm a researcher on the Advanced Rendering Research team at [AMD](https://www.amd.com/), based in Toronto. My research focuses on neural graphics and generative models, with a particular emphasis on real-time generative rendering. My broader interests span computer graphics, virtual and augmented reality (VR/AR), human–AI interaction, display technologies, and the psychophysics of human perception.
+
+I received my Ph.D. in Computer Science from [NYU](https://www.nyu.edu), where I was advised by [Prof. Qi Sun](https://qisun.me) in the [Immersive Computing Lab](https://www.immersivecomputinglab.org). Prior to NYU, I obtained my M.Phil. at [CUHK](https://www.gs.cuhk.edu.hk) under the supervision of [Prof. Dahua Lin](http://dahua.site) in the [Multimedia Laboratory](https://mmlab.ie.cuhk.edu.hk). I completed my undergraduate studies at [SJTU](https://en.sjtu.edu.cn) and [École Polytechnique](https://www.polytechnique.edu/en).
+
+Throughout my graduate studies, I was fortunate to work with and learn from great minds at [Meta Reality Labs](https://tech.facebook.com/reality-labs/), [Adobe Research](https://research.adobe.com/), [Intel Graphics Research](https://www.intel.com/content/www/us/en/developer/topic-technology/graphics-research/overview.html), and [Sony Interactive Entertainment](https://sonyinteractive.com/en/).
+
+Outside of work, I enjoy watching movies, hiking, traveling, and photography!
